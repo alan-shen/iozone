@@ -5,7 +5,7 @@ CFLAGS	= -Wall -static
 
 linux:	iozone_linux.o  libbif.o libasync.o fileop_linux.o pit_server.o
 	$(CC) -O3 $(LDFLAGS) iozone_linux.o libbif.o libasync.o \
-		-lrt -lpthread -o iozone
+		-lrt -lpthread -o iozone-i686
 	$(CC) -O3 -Dlinux fileop_linux.o -o fileop
 	$(CC) -O3 -Dlinux pit_server.o -o pit_server
 
@@ -26,5 +26,5 @@ pit_server.o:	pit_server.c
 	$(CC) -c  $(CFLAGS) pit_server.c  -o pit_server.o 
 	
 clean:
-	rm -f *.o iozone fileop pit_server
+	rm -f *.o iozone-i686 fileop pit_server
 
